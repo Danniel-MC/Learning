@@ -6,7 +6,7 @@ const Mensaje = () => {
 };
 
 const Description = () => {
-  return <p>Utilizando components</p>;
+  return <p>Utilizando components en diferente archivo</p>;
 };
 
 const App = () => {
