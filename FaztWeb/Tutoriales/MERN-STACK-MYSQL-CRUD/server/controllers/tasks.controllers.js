@@ -24,8 +24,12 @@ export const createTasks = async (req, res) => {
   res.json({ id: result.insertId, title, description });
 };
 
-export const updateTasks = (req, res) => {
-  res.send("Updating tareas");
+export const updateTasks = async (req, res) => {
+  const result = await pool.query("UPDATE tasks SET ? WHERE id=?", [
+    req.body,
+    req.params.id,
+  ]);
+  res.json({ result });
 };
 
 export const deleteTasks = async (req, res) => {
@@ -35,5 +39,6 @@ export const deleteTasks = async (req, res) => {
   if (result.affectedRows === 0) {
     return res.status(404).json({ message: "Task not found" });
   }
+  res.json({ result });
   return res.sendStatus(204);
 };
