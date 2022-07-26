@@ -65,9 +65,9 @@ export const deleteTasks = async (req, res) => {
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: "Task not found" });
     }
-    res.json({ result });
+    res.json({result});
     return res.sendStatus(204);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return console.error("Error");
   }
 };

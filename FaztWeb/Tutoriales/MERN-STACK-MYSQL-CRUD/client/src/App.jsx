@@ -1,9 +1,21 @@
-import {  Routes} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
+import TasksPage from "./pages/TasksPage";
+import TasksForm from "./pages/TasksForm";
+import NotFound from "./pages/NotFound";
+
+import NavBar from "./components/NavBar";
+
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<TasksPage />} />
+        <Route path="/new" element={<TasksForm />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
